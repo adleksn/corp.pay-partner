@@ -146,6 +146,7 @@ test('faq section preserves the five closed questions and responsive accordions'
   assert.match(html, /Частые вопросы/);
   for (const question of ['Как стать партнёром?', 'Кто может стать партнёром?', 'Как клиент закрепляется за мной?', 'Что если клиент уже работает с вами?', 'Как считается вознаграждение?']) assert.match(html, new RegExp(question.replaceAll('?', '\\?')));
   assert.match(css, /\.faq\s*\{[^}]*padding: 88px 80px/);
+  assert.match(css, /\.faq\s*\{[^}]*background: #ede3f4/);
   assert.match(css, /\.faq__list\s*\{[^}]*width: 860px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.faq__item\s*\{[^}]*padding: 16px 2px/);
 });
