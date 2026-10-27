@@ -121,3 +121,19 @@ test('mutual-benefits section preserves both audiences and shared benefits', () 
   assert.match(css, /\.mutual-benefits__panel--partner\s*\{[^}]*background: #741b75/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.mutual-benefits__audiences\s*\{[^}]*flex-direction: column/);
 });
+
+test('objections section preserves the source chat dialogue and responsive chat window', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="objections"/);
+  assert.match(html, /Частые возражения/);
+  assert.match(html, /Рекомендуйте нас клиентам и получайте до 40% нашей комиссии с их платежей/);
+  assert.match(html, /Клиенты и так платят сами/);
+  assert.match(html, /Клиенту это лишние хлопоты и ещё один подрядчик/);
+  assert.match(html, /Мы платим своей картой, и всё работает/);
+  assert.match(html, /Как подключиться\? Оставить заявку/);
+  assert.match(css, /\.objections\s*\{[^}]*padding: 88px 80px/);
+  assert.match(css, /\.objections__chat\s*\{[^}]*width: 760px/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.objections__chat\s*\{[^}]*border-radius: 20px/);
+});
