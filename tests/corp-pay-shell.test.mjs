@@ -34,3 +34,20 @@ test('hero preserves the partner-program copy and its authored line breaks', () 
   assert.match(css, /font-size: 48px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-hero/);
 });
+
+test('why-start section preserves the Pen card data and responsive layout', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="why-start"/);
+  assert.match(html, /Почему стоит начать сейчас/);
+  assert.match(html, /53%/);
+  assert.match(html, /₽ 357 млрд/);
+  assert.match(html, /\+68% в год/);
+  assert.match(html, /Сегодня клиенты уже тратят свои деньги на нейросети и зарубежные сервисы\.<br>/);
+  assert.match(css, /\.why-start\s*\{[\s\S]*?padding: 88px 80px/);
+  assert.match(css, /\.why-start__cards\s*\{[\s\S]*?height: 220px/);
+  assert.match(css, /\.why-start__card\s*\{[\s\S]*?border-radius: 20px/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.why-start__cards\s*\{[\s\S]*?flex-direction: column/);
+  assert.match(css, /\.partner-hero__cta button:hover[^{]*\{[\s\S]*?#68186a/);
+});
