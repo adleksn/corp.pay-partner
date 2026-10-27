@@ -90,3 +90,18 @@ test('partner-status section preserves three tiers, benefits, and source footnot
   assert.match(css, /\.partner-status__card--platinum\s*\{[^}]*linear-gradient\(90deg, #cc5fce 0%, #a32a8d 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__cards\s*\{[^}]*flex-direction: column/);
 });
+
+test('status-lock section preserves the five-month source sequence', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="status-lock"/);
+  assert.match(html, /Статус не снижается из-за одного слабого месяца/);
+  for (const month of ['Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'Январь']) assert.match(html, new RegExp(month));
+  assert.match(html, /Платиновый статус зафиксирован на 3 месяца/);
+  assert.match(html, /После повышения статус фиксируется на 3 месяца/);
+  assert.match(css, /\.status-lock\s*\{[^}]*padding: 88px 80px/);
+  assert.match(css, /\.status-lock__sequence\s*\{[^}]*width: 1280px/);
+  assert.match(css, /\.status-lock__fixed\s*\{[^}]*background: #a32a8d1f/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
+});

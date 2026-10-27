@@ -49,3 +49,9 @@ final result: passed
 - Desktop was checked at 1440 px: section padding is 88 px × 80 px, the 1280 px status rail has three equal 413.33 px cards with 28 px padding.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, cards stack vertically at 343 px wide with 24 px padding.
 - The source status colors, `award` and check glyphs, benefits, tier thresholds, percentages, gradient, and all three footnotes are retained.
+
+## Section 5: "Статус не снижается из-за одного слабого месяца"
+
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the sequence is 1280 px wide, each monthly card is 189 px × 188 px, and the three-month fixed group is 607 px wide.
+- Mobile was checked at 375 px: section padding is 56 px × 16 px; six 343 px-wide month rows stack vertically and the desktop arrows are omitted as in the Pen mobile frame.
+- The month order, fixed-status label, monthly results, tier colors, lock glyphs, and the three explanatory rules match the source frames.
