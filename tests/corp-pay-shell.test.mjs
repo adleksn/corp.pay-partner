@@ -51,3 +51,19 @@ test('why-start section preserves the Pen card data and responsive layout', () =
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.why-start__cards\s*\{[\s\S]*?flex-direction: column/);
   assert.match(css, /\.partner-hero__cta button:hover[^{]*\{[\s\S]*?#68186a/);
 });
+
+test('how-it-works section preserves all four Pen steps and its mobile timeline', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="how-it-works"/);
+  assert.match(html, /Как это работает/);
+  assert.match(html, /Становитесь партнёром/);
+  assert.match(html, /Привести клиента — удобно/);
+  assert.match(html, /Клиент работает напрямую/);
+  assert.match(html, /Получаете вознаграждение/);
+  assert.match(css, /\.how-it-works\s*\{[\s\S]*?padding: 88px 80px/);
+  assert.match(css, /\.how-it-works__steps\s*\{[\s\S]*?gap: 32px/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.how-it-works__steps\s*\{[\s\S]*?flex-direction: column/);
+  assert.match(css, /\.how-it-works__step:not\(:last-child\) .how-it-works__number::after/);
+});

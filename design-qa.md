@@ -37,3 +37,9 @@ final result: passed
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, the heading is 24 px, cards stack with a 12 px gap, and each card is 343 px wide with 20 px padding.
 - The CTA hover color is taken from the corp.pay source: `#68186A`.
 - Copy, sources, numerical values, card order, and authored desktop/mobile line breaks match the supplied Pen frame.
+
+## Section 3: "Как это работает"
+
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the steps rail is 1280 px, and the four equal columns are 296 px wide with 32 px gaps.
+- Mobile was checked at 375 px: section padding is 56 px × 16 px, four steps stack vertically, and the first three numbered rails use source-matched 2 px × 100 px connectors.
+- Copy, ordering, paragraph separation, typography, and colors are mapped directly from the Pen desktop and mobile frames.
