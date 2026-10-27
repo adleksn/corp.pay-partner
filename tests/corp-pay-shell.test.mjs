@@ -149,3 +149,20 @@ test('faq section preserves the five closed questions and responsive accordions'
   assert.match(css, /\.faq__list\s*\{[^}]*width: 860px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.faq__item\s*\{[^}]*padding: 16px 2px/);
 });
+
+test('partner application section preserves its source form and mobile stacking', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="partner-application"/);
+  assert.match(html, /Станьте партнёром/);
+  assert.match(html, /Оставьте контакт — менеджер напишет в течение рабочего дня, расскажет об условиях и пришлёт договор/);
+  assert.match(html, /Договор через ЭДО/);
+  assert.match(html, /Без вступительных платежей и обязательств по объёму/);
+  assert.match(html, /Как к вам обращаться/);
+  assert.match(html, /@username или email/);
+  assert.match(html, /bpartner@pay-saas\.ru/);
+  assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
+  assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
+});
