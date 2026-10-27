@@ -33,7 +33,7 @@ final result: passed
 
 ## Section 2: "Почему стоит начать сейчас"
 
-- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the heading is 36 px, and each of the three cards is 220 px high with 28 px padding.
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the heading is 40 px, and each of the three cards is 220 px high with 28 px padding.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, the heading is 24 px, cards stack with a 12 px gap, and each card is 343 px wide with 20 px padding.
 - The CTA hover color is taken from the corp.pay source: `#68186A`.
 - Copy, sources, numerical values, card order, and authored desktop/mobile line breaks match the supplied Pen frame.

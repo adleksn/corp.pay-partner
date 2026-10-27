@@ -6,11 +6,14 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf
 
 test('page carries the corp.pay header and footer markup', () => {
   const html = read('index.html');
+  const css = read('styles.css');
 
   assert.match(html, /class="site-header"/);
   assert.match(html, /class="site-footer"/);
   assert.match(html, /assets\/images\/header-logo\.webp/);
   assert.match(html, /assets\/images\/footer-logo\.png/);
+  assert.match(css, /font-family: "Futura PT Book"/);
+  assert.match(css, /\.button\s*\{[\s\S]*?justify-content: center/);
 });
 
 test('mobile shell uses the corp.pay menu and hides the footer', () => {
@@ -48,6 +51,7 @@ test('why-start section preserves the Pen card data and responsive layout', () =
   assert.match(css, /\.why-start\s*\{[\s\S]*?padding: 88px 80px/);
   assert.match(css, /\.why-start__cards\s*\{[\s\S]*?height: 220px/);
   assert.match(css, /\.why-start__card\s*\{[\s\S]*?border-radius: 20px/);
+  assert.match(css, /\.why-start h2\s*\{[^}]*font-size: 40px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.why-start__cards\s*\{[\s\S]*?flex-direction: column/);
   assert.match(css, /\.partner-hero__cta button:hover[^{]*\{[\s\S]*?#68186a/);
 });
