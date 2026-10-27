@@ -55,3 +55,9 @@ final result: passed
 - Desktop was checked at 1440 px: section padding is 88 px × 80 px, the sequence is 1280 px wide, each monthly card is 189 px × 188 px, and the three-month fixed group is 607 px wide.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px; six 343 px-wide month rows stack vertically and the desktop arrows are omitted as in the Pen mobile frame.
 - The month order, fixed-status label, monthly results, tier colors, lock glyphs, and the three explanatory rules match the source frames.
+
+## Section 6: "Выгодно и вам, и клиенту"
+
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the audiences rail is 1280 px × 448 px, and the two panels are 628 px × 448 px.
+- Mobile was checked at 375 px: section padding is 56 px × 16 px, audience panels stack vertically at 343 px wide, followed by the shared-benefits card.
+- Both audience lists, shared benefits, source colors, typography, and authored mobile title breaks are retained.

@@ -105,3 +105,19 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /\.status-lock__fixed\s*\{[^}]*background: #a32a8d1f/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
 });
+
+test('mutual-benefits section preserves both audiences and shared benefits', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="mutual-benefits"/);
+  assert.match(html, /Выгодно и вам, и клиенту/);
+  assert.match(html, /До 40% вознаграждения/);
+  assert.match(html, /Расходы отображены/);
+  assert.match(html, /Удобно и вам, и клиенту/);
+  assert.match(html, /Всё прозрачно/);
+  assert.match(css, /\.mutual-benefits\s*\{[^}]*padding: 88px 80px/);
+  assert.match(css, /\.mutual-benefits__audiences\s*\{[^}]*height: 448px/);
+  assert.match(css, /\.mutual-benefits__panel--partner\s*\{[^}]*background: #741b75/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.mutual-benefits__audiences\s*\{[^}]*flex-direction: column/);
+});
