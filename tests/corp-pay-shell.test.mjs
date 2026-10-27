@@ -71,3 +71,22 @@ test('how-it-works section preserves all four Pen steps and its mobile timeline'
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.how-it-works__steps\s*\{[\s\S]*?flex-direction: column/);
   assert.match(css, /\.how-it-works__step:not\(:last-child\) .how-it-works__number::after/);
 });
+
+test('partner-status section preserves three tiers, benefits, and source footnotes', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+
+  assert.match(html, /class="partner-status"/);
+  assert.match(html, /Чем выше статус, тем больше вознаграждение/);
+  assert.match(html, /Базовый/);
+  assert.match(html, /Золотой/);
+  assert.match(html, /Платиновый/);
+  assert.match(html, /20%/);
+  assert.match(html, /30%/);
+  assert.match(html, /40%/);
+  assert.match(html, /\*Статус присваивается при выполнении обоих условий/);
+  assert.match(css, /\.partner-status\s*\{[^}]*padding: 88px 80px/);
+  assert.match(css, /\.partner-status__cards\s*\{[^}]*width: 1280px/);
+  assert.match(css, /\.partner-status__card--platinum\s*\{[^}]*linear-gradient\(90deg, #cc5fce 0%, #a32a8d 100%\)/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__cards\s*\{[^}]*flex-direction: column/);
+});

@@ -43,3 +43,9 @@ final result: passed
 - Desktop was checked at 1440 px: section padding is 88 px × 80 px, the steps rail is 1280 px, and the four equal columns are 296 px wide with 32 px gaps.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, four steps stack vertically, and the first three numbered rails use source-matched 2 px × 100 px connectors.
 - Copy, ordering, paragraph separation, typography, and colors are mapped directly from the Pen desktop and mobile frames.
+
+## Section 4: "Чем выше статус, тем больше вознаграждение"
+
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the 1280 px status rail has three equal 413.33 px cards with 28 px padding.
+- Mobile was checked at 375 px: section padding is 56 px × 16 px, cards stack vertically at 343 px wide with 24 px padding.
+- The source status colors, `award` and check glyphs, benefits, tier thresholds, percentages, gradient, and all three footnotes are retained.
