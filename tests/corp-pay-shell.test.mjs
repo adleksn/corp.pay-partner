@@ -108,6 +108,7 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /\.status-lock__fixed\s*\{[^}]*background: #a32a8d1f/);
   assert.match(html, /class="status-lock__fixed-label"/);
   assert.match(css, /\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
+  assert.match(css, /\.status-lock__fixed-label\s*\{[^}]*margin: 0 0 0 586px/);
   assert.match(css, /\.status-lock__months\s*\{[^}]*gap: 10px/);
   assert.match(css, /\.status-lock__spacer\s*\{[^}]*height: 12px/);
   assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
