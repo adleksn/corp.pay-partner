@@ -134,7 +134,7 @@ test('objections section preserves the source chat dialogue and responsive chat 
   assert.match(html, /Мы платим своей картой, и всё работает/);
   assert.match(html, /Как подключиться\? Оставить заявку/);
   assert.match(css, /\.objections\s*\{[^}]*padding: 88px 80px/);
-  assert.match(css, /\.objections\s*\{[^}]*background: #ede3f4/);
+  assert.match(css, /\.objections\s*\{[^}]*background-color: #ede3f4/);
   assert.match(css, /\.objections__chat\s*\{[^}]*align-self: center/);
   assert.match(css, /\.objections__chat\s*\{[^}]*width: 760px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.objections__chat\s*\{[^}]*border-radius: 20px/);
