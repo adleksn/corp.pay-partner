@@ -34,6 +34,7 @@ test('hero preserves the partner-program copy and its authored line breaks', () 
   assert.match(html, /Клиенты — платят за нейросети<br>\s*Вы — получаете процент!/);
   assert.match(html, /Порекомендуйте нас один раз и получайте до 40%<br>\s*от нашей комиссии с каждого платежа клиента/);
   assert.match(css, /\.partner-hero\s*\{[\s\S]*?padding: 80px/);
+  assert.match(css, /\.partner-hero\s*\{[^}]*linear-gradient\(135deg, #3e2063 0%, #503072 100%\)/);
   assert.match(css, /\.partner-hero__cta button\s*\{[^}]*height: 52px/);
   assert.match(css, /\.partner-hero__cta button\s*\{[^}]*font-family: "Futura PT", Arial, sans-serif/);
   assert.match(css, /font-size: 48px/);
@@ -146,7 +147,7 @@ test('objections section preserves the source chat dialogue and responsive chat 
   assert.match(html, /Мы платим своей картой, и всё работает/);
   assert.match(html, /Как подключиться\? Оставить заявку/);
   assert.match(css, /\.objections\s*\{[^}]*padding: 88px 80px/);
-  assert.match(css, /\.objections\s*\{[^}]*background-color: #ede3f4/);
+  assert.match(css, /\.objections\s*\{[^}]*background: #ede3f4/);
   assert.match(css, /\.objections__chat\s*\{[^}]*align-self: center/);
   assert.match(css, /\.objections__chat\s*\{[^}]*width: 760px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.objections__chat\s*\{[^}]*border-radius: 20px/);
@@ -179,6 +180,7 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(html, /@username или email/);
   assert.match(html, /bpartner@pay-saas\.ru/);
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
+  assert.match(css, /\.partner-application\s*\{[^}]*linear-gradient\(135deg, #3e2063 0%, #503072 100%\)/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
   assert.match(css, /\.partner-application__wave\s*\{[^}]*display: none/);
   assert.match(css, /\.partner-application__fields button:hover\s*\{[^}]*background: #68186a/);
