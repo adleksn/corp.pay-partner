@@ -194,14 +194,15 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(html, /@username или email/);
   assert.match(html, /bpartner@pay-saas\.ru/);
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
-  assert.match(css, /\.partner-application\s*\{[^}]*linear-gradient\(135deg, #503073 0%, #3e2063 50%, #503073 100%\)/);
+  assert.match(css, /\.partner-application\s*\{[^}]*radial-gradient\(circle at 0 0, #512f75[^}]*radial-gradient\(circle at 100% 100%, #4e3072[^}]*#422268/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
   assert.match(css, /\.partner-application__wave\s*\{[^}]*display: none/);
   assert.match(css, /\.partner-application__fields button:hover\s*\{[^}]*background: #68186a/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
   assert.match(css, /input:checked\s*\{[^}]*data:image\/svg\+xml/);
   assert.match(html, /class="partner-application__error"[^>]*>Укажите Telegram или email для связи/);
-  assert.match(css, /\.partner-application__field\.has-error input\s*\{[^}]*border: 1\.5px solid #e6484b/);
+  assert.match(css, /\.partner-application__field\.has-error input[^}]*\{[^}]*border: 1\.5px solid #e6484b/);
+  assert.match(css, /\.partner-application__fields input:focus\s*\{[^}]*border-color: #a32a8d/);
   assert.match(css, /\.partner-application__error\s*\{[^}]*color: #ff8a8d/);
   assert.match(html, /class="partner-application__spinner"/);
   assert.match(html, /class="partner-application__success"/);

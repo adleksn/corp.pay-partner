@@ -35,6 +35,32 @@ faqTriggers.forEach((trigger) => {
   });
 });
 
+const objectionsSection = document.querySelector('.objections');
+const objectionMessages = document.querySelectorAll('.objections__row');
+
+if (objectionsSection && objectionMessages.length) {
+  const showAllMessages = () => {
+    objectionMessages.forEach((message) => message.classList.add('is-visible'));
+  };
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    showAllMessages();
+  } else {
+    objectionsSection.classList.add('is-animated');
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+
+      objectionMessages.forEach((message, index) => {
+        window.setTimeout(() => message.classList.add('is-visible'), index * 300);
+      });
+      observer.disconnect();
+    }, { threshold: 0.2 });
+
+    observer.observe(objectionsSection);
+  }
+}
+
 const partnerForm = document.querySelector('.partner-application__content');
 
 if (partnerForm) {
