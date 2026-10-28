@@ -53,7 +53,7 @@ test('why-start section preserves the Pen card data and responsive layout', () =
   assert.match(css, /\.why-start\s*\{[\s\S]*?padding: 88px 80px/);
   assert.match(css, /\.why-start__cards\s*\{[\s\S]*?height: 220px/);
   assert.match(css, /\.why-start__card\s*\{[\s\S]*?border-radius: 20px/);
-  assert.match(css, /\.why-start h2\s*\{[^}]*font-size: 40px/);
+  assert.match(css, /\.why-start h2\s*\{[^}]*font-size: 36px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.why-start__cards\s*\{[\s\S]*?flex-direction: column/);
   assert.match(css, /\.partner-hero__cta button:hover[^{]*\{[\s\S]*?#68186a/);
 });
@@ -106,7 +106,9 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /\.status-lock\s*\{[^}]*padding: 88px 80px/);
   assert.match(css, /\.status-lock__sequence\s*\{[^}]*width: 1280px/);
   assert.match(css, /\.status-lock__fixed\s*\{[^}]*background: #a32a8d1f/);
-  assert.match(css, /\.status-lock__sequence\s*\{[^}]*margin-top: 27px/);
+  assert.match(html, /class="status-lock__fixed-label"/);
+  assert.match(css, /\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
+  assert.match(css, /\.status-lock__months\s*\{[^}]*gap: 10px/);
   assert.match(css, /\.status-lock__spacer\s*\{[^}]*height: 12px/);
   assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
@@ -128,6 +130,7 @@ test('mutual-benefits section preserves both audiences and shared benefits', () 
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.mutual-benefits__audiences\s*\{[^}]*flex-direction: column/);
   assert.match(html, /<circle cx="12" cy="12" r="2"><\/circle>/);
   assert.match(html, /<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"><\/path>/);
+  assert.match(html, /M11 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8/);
 });
 
 test('objections section preserves the source chat dialogue and responsive chat window', () => {
