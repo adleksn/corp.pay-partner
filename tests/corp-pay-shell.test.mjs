@@ -176,6 +176,9 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(html, /bpartner@pay-saas\.ru/);
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
+  assert.match(css, /\.partner-application__wave--one\s*\{[^}]*top: -350px; left: -200px/);
+  assert.match(css, /\.partner-application__wave--two\s*\{[^}]*top: 50px; left: calc\(50% \+ 430px\)/);
+  assert.match(css, /\.partner-application__fields button:hover\s*\{[^}]*background: #68186a/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
   assert.match(css, /input:checked\s*\{[^}]*data:image\/svg\+xml/);
 });
