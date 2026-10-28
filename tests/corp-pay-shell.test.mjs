@@ -89,7 +89,8 @@ test('partner-status section preserves three tiers, benefits, and source footnot
   assert.match(html, /\*Статус присваивается при выполнении обоих условий/);
   assert.match(css, /\.partner-status\s*\{[^}]*padding: 88px 80px/);
   assert.match(css, /\.partner-status__cards\s*\{[^}]*width: 1280px/);
-  assert.match(css, /\.partner-status__card--platinum\s*\{[^}]*linear-gradient\(90deg, #cc5fce 0%, #a32a8d 100%\)/);
+  assert.match(css, /\.partner-status__cards\s*\{[^}]*align-items: flex-start/);
+  assert.match(css, /\.partner-status__card--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__cards\s*\{[^}]*flex-direction: column/);
 });
 
@@ -105,6 +106,9 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /\.status-lock\s*\{[^}]*padding: 88px 80px/);
   assert.match(css, /\.status-lock__sequence\s*\{[^}]*width: 1280px/);
   assert.match(css, /\.status-lock__fixed\s*\{[^}]*background: #a32a8d1f/);
+  assert.match(css, /\.status-lock__sequence\s*\{[^}]*margin-top: 27px/);
+  assert.match(css, /\.status-lock__spacer\s*\{[^}]*height: 12px/);
+  assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
 });
 
@@ -122,6 +126,8 @@ test('mutual-benefits section preserves both audiences and shared benefits', () 
   assert.match(css, /\.mutual-benefits__audiences\s*\{[^}]*height: 448px/);
   assert.match(css, /\.mutual-benefits__panel--partner\s*\{[^}]*background: #741b75/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.mutual-benefits__audiences\s*\{[^}]*flex-direction: column/);
+  assert.match(html, /<circle cx="12" cy="12" r="2"><\/circle>/);
+  assert.match(html, /<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"><\/path>/);
 });
 
 test('objections section preserves the source chat dialogue and responsive chat window', () => {
@@ -140,6 +146,7 @@ test('objections section preserves the source chat dialogue and responsive chat 
   assert.match(css, /\.objections__chat\s*\{[^}]*align-self: center/);
   assert.match(css, /\.objections__chat\s*\{[^}]*width: 760px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.objections__chat\s*\{[^}]*border-radius: 20px/);
+  assert.match(css, /\.objections h2\s*\{[^}]*text-align: left/);
 });
 
 test('faq section preserves the five closed questions and responsive accordions', () => {
@@ -170,4 +177,5 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
+  assert.match(css, /input:checked\s*\{[^}]*data:image\/svg\+xml/);
 });
