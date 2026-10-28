@@ -71,3 +71,13 @@ Section 1 result: passed
 - `Montserrat` and `Futura PT` files match the `corp.pay` files byte-for-byte by SHA-256.
 
 final result: passed
+
+## Form states and requested icon/badge corrections
+
+- The partner-application background now uses one continuous diagonal gradient with `#503073` at the upper-left and lower-right corners; no decorative circles are rendered.
+- Monthly-result badges use the Pen fills and award glyphs: base `#E6E0EC`, gold `#D6BFE8`, and platinum `#CC5FCE → #A32A8D`.
+- The shared-benefits headset is the exact Lucide `headset` geometry from the Pen source.
+- Empty contact submission was exercised in Chrome: the contact field receives `#E6484B`, and “Укажите Telegram или email для связи” appears directly below it in `#FF8A8D`.
+- Valid submission was exercised in Chrome: the button enters the 270° spinner state and then switches to the circle-check success state with the exact supplied copy. The same form markup and JavaScript state machine are used below and above the 900 px breakpoint.
+
+Form-state result: passed

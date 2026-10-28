@@ -112,6 +112,10 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /\.status-lock__fixed-label\s*\{[^}]*margin: 0 0 0 586px/);
   assert.match(css, /\.status-lock__months\s*\{[^}]*gap: 10px/);
   assert.match(css, /\.status-lock__spacer\s*\{[^}]*height: 12px/);
+  assert.match(html, /status-result status-result--base[\s\S]*?status-result__icon[\s\S]*?Базовый/);
+  assert.match(html, /status-result status-result--platinum[\s\S]*?status-result__icon[\s\S]*?Платиновый/);
+  assert.match(html, /status-result status-result--gold[\s\S]*?status-result__icon[\s\S]*?Золотой/);
+  assert.match(css, /\.status-result--base\s*\{[^}]*background: #e6e0ec/);
   assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
 });
@@ -129,6 +133,7 @@ test('mutual-benefits section preserves both audiences and shared benefits', () 
   assert.match(css, /\.mutual-benefits\s*\{[^}]*padding: 88px 80px/);
   assert.match(css, /\.mutual-benefits__audiences\s*\{[^}]*height: 448px/);
   assert.match(css, /\.mutual-benefits__panel--partner\s*\{[^}]*background: #741b75/);
+  assert.match(html, /class="benefit-icon benefit-icon--headset"[\s\S]*?M3 14h3a2 2 0 0 1 2 2v5H5/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.mutual-benefits__audiences\s*\{[^}]*flex-direction: column/);
   assert.match(html, /<circle cx="12" cy="12" r="2"><\/circle>/);
   assert.match(html, /<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"><\/path>/);
@@ -178,6 +183,7 @@ test('faq section opens the first question by default and preserves responsive a
 test('partner application section preserves its source form and mobile stacking', () => {
   const html = read('index.html');
   const css = read('styles.css');
+  const script = read('script.js');
 
   assert.match(html, /class="partner-application"/);
   assert.match(html, /Станьте партнёром/);
@@ -188,10 +194,20 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(html, /@username или email/);
   assert.match(html, /bpartner@pay-saas\.ru/);
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
-  assert.match(css, /\.partner-application\s*\{[^}]*linear-gradient\(135deg, #3e2063 0%, #503072 100%\)/);
+  assert.match(css, /\.partner-application\s*\{[^}]*linear-gradient\(135deg, #503073 0%, #3e2063 50%, #503073 100%\)/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
   assert.match(css, /\.partner-application__wave\s*\{[^}]*display: none/);
   assert.match(css, /\.partner-application__fields button:hover\s*\{[^}]*background: #68186a/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
   assert.match(css, /input:checked\s*\{[^}]*data:image\/svg\+xml/);
+  assert.match(html, /class="partner-application__error"[^>]*>Укажите Telegram или email для связи/);
+  assert.match(css, /\.partner-application__field\.has-error input\s*\{[^}]*border: 1\.5px solid #e6484b/);
+  assert.match(css, /\.partner-application__error\s*\{[^}]*color: #ff8a8d/);
+  assert.match(html, /class="partner-application__spinner"/);
+  assert.match(html, /class="partner-application__success"/);
+  assert.match(html, /Заявка отправлена/);
+  assert.match(html, /Менеджер напишет вам в течение рабочего дня/);
+  assert.match(script, /partnerForm\.addEventListener\('submit'/);
+  assert.match(script, /partnerForm\.classList\.add\('is-loading'\)/);
+  assert.match(script, /partnerForm\.classList\.add\('is-success'\)/);
 });

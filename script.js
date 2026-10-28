@@ -34,3 +34,46 @@ faqTriggers.forEach((trigger) => {
     });
   });
 });
+
+const partnerForm = document.querySelector('.partner-application__content');
+
+if (partnerForm) {
+  const contactField = partnerForm.querySelector('.partner-application__field--contact');
+  const contactInput = contactField?.querySelector('input');
+  const submitButton = partnerForm.querySelector('button[type="submit"]');
+  const successState = partnerForm.querySelector('.partner-application__success');
+  const formInputs = partnerForm.querySelectorAll('.partner-application__fields input');
+
+  const clearContactError = () => {
+    if (!contactField || !contactInput) return;
+    contactField.classList.remove('has-error');
+    contactInput.removeAttribute('aria-invalid');
+  };
+
+  contactInput?.addEventListener('input', clearContactError);
+
+  partnerForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!contactInput || !contactField || !submitButton || !successState) return;
+
+    if (!contactInput.value.trim()) {
+      contactField.classList.add('has-error');
+      contactInput.setAttribute('aria-invalid', 'true');
+      contactInput.focus();
+      return;
+    }
+
+    clearContactError();
+    partnerForm.style.minHeight = `${partnerForm.offsetHeight}px`;
+    partnerForm.classList.add('is-loading');
+    submitButton.disabled = true;
+    formInputs.forEach((input) => { input.disabled = true; });
+
+    window.setTimeout(() => {
+      partnerForm.classList.remove('is-loading');
+      partnerForm.classList.add('is-success');
+      successState.hidden = false;
+    }, 900);
+  });
+}
