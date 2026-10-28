@@ -74,7 +74,7 @@ final result: passed
 
 ## Form states and requested icon/badge corrections
 
-- The partner-application background state in that pass used a continuous diagonal gradient; it was subsequently replaced by the latest requested layered radial treatment documented below.
+- The partner-application background uses the same continuous diagonal gradient and glow treatment as the hero, following the latest request.
 - Monthly-result badges use the Pen fills and award glyphs: base `#E6E0EC`, gold `#D6BFE8`, and platinum `#CC5FCE → #A32A8D`.
 - The shared-benefits headset is the exact Lucide `headset` geometry from the Pen source.
 - Empty contact submission was exercised in Chrome: the contact field receives `#E6484B`, and “Укажите Telegram или email для связи” appears directly below it in `#FF8A8D`.
@@ -85,7 +85,8 @@ Form-state result: passed
 ## Focus, partner background, and objection-message motion
 
 - The form inputs now use a `1.5px` `#A32A8D` border while focused; the validation state remains `#E6484B` and takes precedence.
-- The partner section was visually rechecked in Chrome. Its computed base is `#422268`, with soft radial transitions from `#512F75` at the upper-left and `#4E3072` at the lower-right.
+- The partner section was visually rechecked against the hero. Both compute to `linear-gradient(135deg, #3E2063 0%, #503072 100%)`, with identical 750 px/650 px blurred white glow layers and opacity values.
+- At 375 px, both sections use the same 400 px upper-left glow and hide the lower-right glow.
 - The seven objection messages start hidden only after JavaScript initializes, then reveal in DOM order at `0, 300, 600, 900, 1200, 1500, 1800ms` after the section intersects the viewport.
 - With `prefers-reduced-motion: reduce`, every message is shown immediately and transitions are disabled.
 

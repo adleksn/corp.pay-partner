@@ -194,9 +194,11 @@ test('partner application section preserves its source form and mobile stacking'
   assert.match(html, /@username или email/);
   assert.match(html, /bpartner@pay-saas\.ru/);
   assert.match(css, /\.partner-application\s*\{[^}]*padding: 48px 80px/);
-  assert.match(css, /\.partner-application\s*\{[^}]*radial-gradient\(circle at 0 0, #512f75[^}]*radial-gradient\(circle at 100% 100%, #4e3072[^}]*#422268/);
+  assert.match(css, /\.partner-application\s*\{[^}]*linear-gradient\(135deg, #3e2063 0%, #503072 100%\)/);
   assert.match(css, /\.partner-application__content\s*\{[^}]*width: 880px/);
-  assert.match(css, /\.partner-application__wave\s*\{[^}]*display: none/);
+  assert.match(css, /\.partner-application__wave\s*\{[^}]*display: block[^}]*filter: blur\(70px\)/);
+  assert.match(css, /\.partner-application__wave--one\s*\{[^}]*width: 750px[^}]*background: #ffffff0d/);
+  assert.match(css, /\.partner-application__wave--two\s*\{[^}]*width: 650px[^}]*background: #ffffff10/);
   assert.match(css, /\.partner-application__fields button:hover\s*\{[^}]*background: #68186a/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-application__fields\s*\{[^}]*flex-direction: column/);
   assert.match(css, /input:checked\s*\{[^}]*data:image\/svg\+xml/);
