@@ -157,6 +157,7 @@ test('objections section preserves the source chat dialogue and responsive chat 
 test('faq section preserves the five closed questions and responsive accordions', () => {
   const html = read('index.html');
   const css = read('styles.css');
+  const script = read('script.js');
 
   assert.match(html, /class="faq"/);
   assert.match(html, /Частые вопросы/);
@@ -164,7 +165,12 @@ test('faq section preserves the five closed questions and responsive accordions'
   assert.match(css, /\.faq\s*\{[^}]*padding: 88px 80px/);
   assert.match(css, /\.faq\s*\{[^}]*background: #fff/);
   assert.match(css, /\.faq__list\s*\{[^}]*width: 860px/);
-  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.faq__item\s*\{[^}]*padding: 16px 2px/);
+  assert.match(html, /data-faq-trigger/);
+  assert.match(html, /id="faq-answer-5" hidden/);
+  assert.match(css, /\.faq__item\.is-open \.faq__plus::after/);
+  assert.match(script, /const faqTriggers = document\.querySelectorAll\('\[data-faq-trigger\]'\)/);
+  assert.match(script, /answer\.hidden = !isOpen/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.faq__question\s*\{[^}]*font-size: 15px/);
 });
 
 test('partner application section preserves its source form and mobile stacking', () => {
