@@ -154,7 +154,7 @@ test('objections section preserves the source chat dialogue and responsive chat 
   assert.match(css, /\.objections h2\s*\{[^}]*text-align: left/);
 });
 
-test('faq section preserves the five closed questions and responsive accordions', () => {
+test('faq section opens the first question by default and preserves responsive accordions', () => {
   const html = read('index.html');
   const css = read('styles.css');
   const script = read('script.js');
@@ -166,6 +166,8 @@ test('faq section preserves the five closed questions and responsive accordions'
   assert.match(css, /\.faq\s*\{[^}]*background: #fff/);
   assert.match(css, /\.faq__list\s*\{[^}]*width: 860px/);
   assert.match(html, /data-faq-trigger/);
+  assert.match(html, /class="faq__item is-open"[^>]*><button class="faq__question"[^>]*aria-expanded="true"[^>]*aria-controls="faq-answer-1"/);
+  assert.match(html, /class="faq__answer" id="faq-answer-1"><span><\/span><span><\/span><\/div>/);
   assert.match(html, /id="faq-answer-5" hidden/);
   assert.match(css, /\.faq__item\.is-open \.faq__plus::after/);
   assert.match(script, /const faqTriggers = document\.querySelectorAll\('\[data-faq-trigger\]'\)/);
