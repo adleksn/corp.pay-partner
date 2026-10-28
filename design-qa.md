@@ -2,15 +2,15 @@
 
 - Source visual truth: `/Users/nikitaalekseev/Desktop/Снимок экрана 2026-10-27 в 23.33.59.png` and the supplied Pen frame `Партнёрская программа — десктоп` / `Партнёрская программа — мобильная версия`.
 - Implementation: browser-rendered `http://127.0.0.1:4173/`.
-- Desktop viewport: 1440 × 900 CSS px, device scale factor 1; source reference is 2940 × 1672 px and was compared against the 1440 px canvas content, excluding Pen editor chrome.
-- Mobile viewport: 375 × 812 CSS px, device scale factor 1; closed-menu state.
+- Desktop viewport: 1440 × 1000 CSS px, device scale factor 1; source reference is 2940 × 1672 px and was compared against the normalized 1440 px canvas content, excluding Pen editor chrome.
+- Mobile viewport: 375 × 667 CSS px, device scale factor 1; closed-menu state.
 
 **Findings**
 
 - No actionable P0, P1, or P2 differences in the partner-program first screen.
 - Fonts and typography: Montserrat is used for the 48 px / 28 px headings and the exact desktop/mobile hard line breaks from the Pen frame are retained. Futura PT is used for the CTA.
 - Spacing and layout rhythm: desktop uses the 860 px content rail, 80 px section padding, 24 px content rhythm, inline markers, and the 8 px CTA offset. Mobile uses 64 px × 16 px padding, 20 px content rhythm, a vertical marker list, and a 52 px full-width CTA.
-- Colors and visual tokens: the source #3E2063 → #4A2570 linear gradient, #EBDCF2 supporting copy, #B93BA0 desktop separators, #CC5FCE mobile checks, and #741B75 CTA are mapped directly.
+- Colors and visual tokens: the requested #3E2063 → #503072 linear gradient, #EBDCF2 supporting copy, #B93BA0 desktop separators, #CC5FCE mobile checks, and #741B75 CTA are mapped directly.
 - Image and asset fidelity: only source project assets are used for the shared shell. The hero has no raster artwork in the Pen frame; its two source decorative ellipses are implemented as the matching translucent background layers.
 - Copy and content: heading, supporting copy, marker labels, CTA label, and all authored breaks match the Pen frame.
 
@@ -29,11 +29,11 @@
 
 - None for the requested first-screen scope.
 
-final result: passed
+Section 1 result: passed
 
 ## Section 2: "Почему стоит начать сейчас"
 
-- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the heading is 40 px, and each of the three cards is 220 px high with 28 px padding.
+- Desktop was checked at 1440 px: section padding is 88 px × 80 px, the heading is 36 px, and each of the three cards is 220 px high with 28 px padding.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, the heading is 24 px, cards stack with a 12 px gap, and each card is 343 px wide with 20 px padding.
 - The CTA hover color is taken from the corp.pay source: `#68186A`.
 - Copy, sources, numerical values, card order, and authored desktop/mobile line breaks match the supplied Pen frame.
@@ -61,3 +61,13 @@ final result: passed
 - Desktop was checked at 1440 px: section padding is 88 px × 80 px, the audiences rail is 1280 px × 448 px, and the two panels are 628 px × 448 px.
 - Mobile was checked at 375 px: section padding is 56 px × 16 px, audience panels stack vertically at 343 px wide, followed by the shared-benefits card.
 - Both audience lists, shared benefits, source colors, typography, and authored mobile title breaks are retained.
+
+## Sections 7–9: objections, FAQ, partner form
+
+- The objections section uses the exact `#EDE3F4` fill, 760 px desktop chat rail, authored message widths and mobile text wrapping.
+- The FAQ uses a single-open-item accordion. The first item is expanded on initial load; opening another question collapses the previous one.
+- The application block uses the requested `#3E2063 → #503072` gradient, matching form geometry, shared CTA hover state, and the checked-state SVG tick.
+- The fixed-status label is positioned at the source x-offset above the October–December group.
+- `Montserrat` and `Futura PT` files match the `corp.pay` files byte-for-byte by SHA-256.
+
+final result: passed
