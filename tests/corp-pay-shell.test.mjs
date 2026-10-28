@@ -34,6 +34,8 @@ test('hero preserves the partner-program copy and its authored line breaks', () 
   assert.match(html, /Клиенты — платят за нейросети<br>\s*Вы — получаете процент!/);
   assert.match(html, /Порекомендуйте нас один раз и получайте до 40%<br>\s*от нашей комиссии с каждого платежа клиента/);
   assert.match(css, /\.partner-hero\s*\{[\s\S]*?padding: 80px/);
+  assert.match(css, /\.partner-hero__cta button\s*\{[^}]*height: 52px/);
+  assert.match(css, /\.partner-hero__cta button\s*\{[^}]*font-family: "Futura PT", Arial, sans-serif/);
   assert.match(css, /font-size: 48px/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-hero/);
 });
