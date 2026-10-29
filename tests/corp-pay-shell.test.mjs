@@ -93,6 +93,8 @@ test('partner-status section preserves three tiers, benefits, and source footnot
   assert.match(css, /\.partner-status__cards\s*\{[^}]*align-items: flex-start/);
   assert.match(css, /\.partner-status__card--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__cards\s*\{[^}]*flex-direction: column/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__cards\s*\{[^}]*align-items: stretch/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.partner-status__card\s*\{[^}]*width: 100%/);
 });
 
 test('status-lock section preserves the five-month source sequence', () => {
@@ -116,6 +118,9 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(html, /status-result status-result--platinum[\s\S]*?status-result__icon[\s\S]*?Платиновый/);
   assert.match(html, /status-result status-result--gold[\s\S]*?status-result__icon[\s\S]*?Золотой/);
   assert.match(css, /\.status-result--base\s*\{[^}]*background: #e6e0ec/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-month\s*\{[^}]*border-bottom: 1px solid #e6e0ec/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-month--platinum\s*\{[^}]*border-bottom-color: #ffffff66/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-month--platinum \.status-result--base\s*\{[^}]*color: #eeccec !important/);
   assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
 });

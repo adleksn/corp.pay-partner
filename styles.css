@@ -242,6 +242,35 @@ img, svg { display: block; max-width: 100%; } button, a { font: inherit; } butto
   }
 }
 
+/* Mobile partner-status and status-lock fidelity fixes. */
+@media (max-width: 900px) {
+  .partner-status__cards {
+    align-items: stretch;
+  }
+
+  .partner-status__card {
+    width: 100%;
+    flex: none;
+  }
+
+  .status-month {
+    border-bottom: 1px solid #e6e0ec;
+  }
+
+  .status-month--platinum {
+    border-bottom-color: #ffffff66;
+  }
+
+  .status-lock__months > .status-lock__month-wrap:last-child .status-month {
+    border-bottom: 0;
+  }
+
+  .status-month--platinum .status-result--base {
+    color: #eeccec !important;
+    background: transparent;
+  }
+}
+
 @media (max-width: 900px) {
   .partner-application__wave--one {
     top: -150px;
