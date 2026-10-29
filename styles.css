@@ -269,6 +269,10 @@ img, svg { display: block; max-width: 100%; } button, a { font: inherit; } butto
     color: #eeccec !important;
     background: transparent;
   }
+
+  .status-result__icon {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
