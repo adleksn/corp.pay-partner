@@ -123,6 +123,8 @@ test('status-lock section preserves the five-month source sequence', () => {
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-month--platinum \.status-result--base\s*\{[^}]*color: #eeccec !important/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-result__icon\s*\{[^}]*display: none/);
   assert.match(css, /\.status-month--platinum\s*\{[^}]*linear-gradient\(90deg, #a32a8d 0%, #cc5fce 100%\)/);
+  assert.match(css, /@media \(min-width: 901px\)[\s\S]*?\.status-month__details\s*\{[^}]*flex: 1 1 auto/);
+  assert.match(css, /@media \(min-width: 901px\)[\s\S]*?\.status-month__field:last-child\s*\{[^}]*justify-content: center/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.status-lock__sequence\s*\{[^}]*flex-direction: column/);
 });
 

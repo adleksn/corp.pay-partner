@@ -243,6 +243,17 @@ img, svg { display: block; max-width: 100%; } button, a { font: inherit; } butto
 }
 
 /* Mobile partner-status and status-lock fidelity fixes. */
+@media (min-width: 901px) {
+  .status-month__details {
+    flex: 1 1 auto;
+  }
+
+  .status-month__field:last-child {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 900px) {
   .partner-status__cards {
     align-items: stretch;
